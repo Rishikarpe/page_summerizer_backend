@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Page AI Assistant</title>
+
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      width: 380px;
+      margin: 0;
+      background: #232323;
+        border-radius: var(--radius-lg);
+  overflow: hidden; /* IMPORTANT for popup corners */
+    }
+
+
+
+    .header {
+      background: #2F2F2F;
+      color: white;
+      padding: 14px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .content {
+      padding: 14px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .output {
+      white-space: pre-wrap;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+      margin-top: 8px;
+    }
+
+    #summary-status {
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 6px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      background: #2F99C8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #8073FC;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd;
+      margin: 16px 0;
+    }
+
+    /* Chat */
+
+    #chat-history {
+      max-height: 220px;
+      overflow-y: auto;
+      margin-bottom: 8px;
+    }
+
+    .message {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .question {
+      background: #e3f2fd;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .answer {
+      background: #ffffff;
+      border: 1px solid #ddd;
+      cursor: pointer;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      resize: vertical;
+      font-size: 13px;
+      min-height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">🧠 Page AI Assistant</div>
+
+  <div class="content">
+    <!-- SUMMARY -->
+    <div id="summary-status">Loading…</div>
+    <pre id="summary-output" class="output hidden"></pre>
+    <button id="reload-summary-btn">🔄 Reload Summary</button>
+
+    <hr>
+
+    <!-- CHAT -->
+    <div id="chat-history"></div>
+
+    <textarea
+      id="question-input"
+      placeholder="Ask about this page…"
+    ></textarea>
+
+    <button id="ask-btn">Ask</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
